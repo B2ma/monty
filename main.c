@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <string.h>
 /**
 * main - main function
 * @argc: argument count
@@ -11,20 +12,21 @@ int i;
 unsigned int line_number = 1;
 stack_t *stack = NULL;
 char opcode[100];
+FILE *file = fopen(argv[1], "r");
 if (argc != 2)
 {
 fprintf(stderr, "USAGE: %s file\n", argv[0]);
 exit(EXIT_FAILURE);
 }
-FILE *file = fopen(argv[1], "r");
 if (!file)
 {
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
 instruction_t instructions[] = {
-{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-{"swap", swap}, {"add", add}, {"nop", nop}};
+{"push", push}, {"pall", pall}, {"pint", pint},
+{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}
+};
 while (fscanf(file, "%99s", opcode) == 1)
 {
 for (i = 0; i < sizeof(instructions) / sizeof(instruction_t); i++)
