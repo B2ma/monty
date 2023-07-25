@@ -7,6 +7,10 @@
 */
 int main(int argc, char *argv[])
 {
+int i;
+unsigned int line_number = 1;
+stack_t *stack = NULL;
+char opcode[100];
 if (argc != 2)
 {
 fprintf(stderr, "USAGE: %s file\n", argv[0]);
@@ -18,15 +22,11 @@ if (!file)
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
-stack_t *stack = NULL;
 instruction_t instructions[] = {
 {"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 {"swap", swap}, {"add", add}, {"nop", nop}};
-char opcode[100];
-unsigned int line_number = 1;
 while (fscanf(file, "%99s", opcode) == 1)
 {
-int i;
 for (i = 0; i < sizeof(instructions) / sizeof(instruction_t); i++)
 {
 if (strcmp(opcode, instructions[i].opcode) == 0)
