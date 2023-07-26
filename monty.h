@@ -20,20 +20,18 @@ typedef struct dlist_s
 int queue;
 size_t stack_len;
 } dlist_t;
-/**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
- */
+
 #define STACK 0
 #define QUEUE 1
-
 /* global struct to hold flag for queue and stack length */
 extern dlist_t dlist;
+
+/**
+ * struct stack_s - doubly linked list representation of a stack or queue
+ * @n: integer
+ * @prev: points to the previous element of the stack or queue
+ * @next: points to the next element of the stack or queue
+ */
 typedef struct stack_s
 {
 	int n;
@@ -63,10 +61,17 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(int status, void *arg);
 void freeLineptr(int status, void *arg_str);
+void mul(stack_t **stack, unsigned int line_number);
+void div_func(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 stack_t *addNode(stack_t **stack, const int n);
 void opCode(char *op, stack_t **stack, unsigned int line_number);
 void closeFile(int status, void *arg_str);
 void rotr(stack_t **stack, unsigned int line_number);
 void fifo(stack_t **stack, unsigned int line_number;
 void lifo(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+661d9937de3642c319fa9fb3f3de1b347eba9f49
 #endif

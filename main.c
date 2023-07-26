@@ -1,8 +1,5 @@
 #include "monty.h"
 
-/* global struct to hold flag for queue and stack length */
-dlist_t dlist;
-
 /**
  * main - Entry point of monty interpreter
  * @argc: argument count
@@ -31,7 +28,6 @@ if (file == NULL)
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
- 
 on_exit(freeLineptr, &lineptr);
 on_exit(freeStack, &stack);
 on_exit(closeFile, file);

@@ -19,7 +19,16 @@ instruction_t instructions[] = {
 {"swap", swap},
 {"add", add},
 {"nop", nop},
+{"sub", sub},
+{"div", div_func},
+{"mul", mul},
+{"mod", mod},
+{"pchar", pchar},
+{"pstr", pstr}
 };
+
+if (op[0] == '#')
+return;
 
 for (i = 0; instructions[i].opcode != NULL; i++)
 {
@@ -30,6 +39,6 @@ return;
 }
 }
 
-fprintf(stderr, "L%u: unknown instruction %s\n",line_number, op);
+fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
 exit(EXIT_FAILURE);
 }
