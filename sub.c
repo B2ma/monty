@@ -11,20 +11,14 @@
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
-stack_t *temp = *stack;
-int m = 0, itr = 0;
+int n;
 
-while (temp)
+if (dlist.stack_len < 2)
 {
-temp = temp->next;
-itr++;
-}
-if (*stack == NULL || (*stack)->next == NULL || itr <= 1)
-{
-fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 exit(EXIT_FAILURE);
 }
-m = (*stack)->next->n - (*stack)->n;
+n = (*stack)->n;
 pop(stack, line_number);
-(*stack)->n = m;
+(*stack)->n -= n;
 }

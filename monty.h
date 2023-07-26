@@ -61,7 +61,13 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(int status, void *arg);
 void freeLineptr(int status, void *arg_str);
+void mul(stack_t **stack, unsigned int line_number);
+void div_func(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 stack_t *addNode(stack_t **stack, const int n);
 void opCode(char *op, stack_t **stack, unsigned int line_number);
 void closeFile(int status, void *arg_str);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 #endif
