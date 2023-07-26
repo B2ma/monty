@@ -24,7 +24,11 @@ instruction_t instructions[] = {
 {"mul", mul},
 {"mod", mod},
 {"pchar", pchar},
-{"pstr", pstr}
+{"pstr", pstr},
+{"rotl", rotl},
+{"rotr", rotr},
+{"stack", lifo},
+{"queue", fifo}
 };
 
 if (op[0] == '#')

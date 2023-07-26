@@ -67,11 +67,12 @@ void sub(stack_t **stack, unsigned int line_number);
 stack_t *addNode(stack_t **stack, const int n);
 void opCode(char *op, stack_t **stack, unsigned int line_number);
 void closeFile(int status, void *arg_str);
+void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-void fifo(stack_t **stack, unsigned int line_number;
+void fifo(stack_t **stack, unsigned int line_number);
 void lifo(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
-661d9937de3642c319fa9fb3f3de1b347eba9f49
+
 #endif
