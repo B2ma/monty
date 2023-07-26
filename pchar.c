@@ -14,7 +14,7 @@ fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 exit(EXIT_FAILURE);
 }
 character = (*stack)->n;
-if (!isascii(character))
+if (!isAscii(character))
 {
 fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 exit(EXIT_FAILURE);

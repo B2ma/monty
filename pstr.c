@@ -20,7 +20,7 @@ temp = *stack;
 while (temp != NULL)
 {
 ch = temp->n;
-if (!isascii(ch) || ch == 0)
+if (!isAscii(ch) || ch == 0)
 break;
 putchar(ch);
 temp = temp->next;
