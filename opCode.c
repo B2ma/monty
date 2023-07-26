@@ -30,6 +30,6 @@ return;
 }
 }
 
-fprintf(stderr, "L%u: unknown instruction %s\n",line_number, op);
+fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
 exit(EXIT_FAILURE);
 }
