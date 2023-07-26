@@ -66,4 +66,7 @@ void freeLineptr(int status, void *arg_str);
 stack_t *addNode(stack_t **stack, const int n);
 void opCode(char *op, stack_t **stack, unsigned int line_number);
 void closeFile(int status, void *arg_str);
+void rotr(stack_t **stack, unsigned int line_number);
+void fifo(stack_t **stack, unsigned int line_number;
+void lifo(stack_t **stack, unsigned int line_number);
 #endif
