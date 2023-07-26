@@ -1,50 +1,48 @@
 #include "monty.h"
-#include <string.h>
+
+/* global struct to hold flag for queue and stack length */
+dlist_t dlist;
+
 /**
-* main - main function
-* @argc: argument count
-* @argv: argument vector
-* Return: integer
-*/
+ * main - Entry point of monty interpreter
+ * @argc: argument count
+ * @argv: pointer to the argument strings
+ *
+ * Return: EXIT_SUCCESS on success or EXIT_FAILURE on failure
+ */
 int main(int argc, char *argv[])
 {
-int i;
-unsigned int line_number = 1;
 stack_t *stack = NULL;
-char opcode[100];
-FILE *file = fopen(argv[1], "r");
+unsigned int line_number = 0;
+FILE *file = NULL;
+char *lineptr = NULL, *op = NULL;
+size_t n = 0;
+
+dlist.queue = 0;
+dlist.stack_len = 0;
 if (argc != 2)
 {
-fprintf(stderr, "USAGE: %s file\n", argv[0]);
+fprintf(stderr, "USAGE: monty file\n");
 exit(EXIT_FAILURE);
 }
-if (!file)
+file = fopen(argv[1], "r");
+if (file == NULL)
 {
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
-instruction_t instructions[] = {
-{"push", push}, {"pall", pall}, {"pint", pint},
-{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}
-};
-while (fscanf(file, "%99s", opcode) == 1)
+ 
+on_exit(freeLineptr, &lineptr);
+on_exit(freeStack, &stack);
+on_exit(closeFile, file);
+while (getline(&lineptr, &n, file) != -1)
 {
-for (i = 0; i < sizeof(instructions) / sizeof(instruction_t); i++)
-{
-if (strcmp(opcode, instructions[i].opcode) == 0)
-{
-instructions[i].f(&stack, line_number);
-break;
-}
-}
-if (i == sizeof(instructions) / sizeof(instruction_t))
-{
-fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-fclose(file);
-exit(EXIT_FAILURE);
-}
 line_number++;
+op = strtok(lineptr, "\n\t\r ");
+if (op != NULL && op[0] != '#')
+{
+opCode(op, &stack, line_number);
 }
-fclose(file);
-return (0);
+}
+exit(EXIT_SUCCESS);
 }
