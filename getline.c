@@ -18,7 +18,7 @@ line[len++] = c;
 if (len >= bufsize)
 {
 bufsize += 128;
-new_line = (char *)realloc(line, bufsize);
+new_line = (char *)_realloc(line, bufsize, bufsize + 128);
 if (new_line == NULL)
 {
 free(line);

@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 char *arg_str;
 int n;
 
-arg_str = strtok(NULL, "\n\t\r ");
+arg_str = strtok(NULL, " \n\t\r ");
 if (arg_str == NULL || check_digit(arg_str))
 {
 fprintf(stderr, "L%u: usage: push integer\n", line_number);
