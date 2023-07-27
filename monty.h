@@ -11,7 +11,8 @@
 #include <unistd.h>
 
 /**
- * struct dlist_s - struct to contain the main variables of the Monty interpreter
+ * struct dlist_s - struct to contain the main 
+ * variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
  * @stack_len: length of the stack
  */
