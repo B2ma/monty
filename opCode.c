@@ -28,7 +28,8 @@ instruction_t instructions[] = {
 {"rotl", rotl},
 {"rotr", rotr},
 {"stack", lifo},
-{"queue", fifo}
+{"queue", fifo},
+{NULL, NULL}
 };
 
 if (op[0] == '#')

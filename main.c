@@ -1,5 +1,5 @@
 #include "monty.h"
-
+dlist_t dlist;
 /**
 * main - Entry point of monty interpreter
 * @argc: argument count
